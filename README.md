@@ -51,35 +51,59 @@ student_management_system/
 ````
 
 ## Features
-### Admin Features
-````shell
-Admin Login
-Add Students
-Manage Student Marks
-Manage Attendance
-View All Students
-Manage Student Records
-Dashboard Access
-Session Authentication
+### **Admin Features**
+````text
+- Admin Login
+- Add Students
+- Manage Student Marks
+- Manage Attendance
+- View All Students
+- Manage Student Records
+- Dashboard Access
+- Session Authentication
 ````
-### Student Features
-````shell
-Student Registration
-Student Login
-View Marks
-View Attendance
-Dashboard Access
-````
-### Python Flask API
-````shell
-Total Student Count API
-MySQL Database Integration
-Flask Backend Support
-````
-# Create a Ec2 instance
-ubunut ,t3.small , student-key.pem ,student-sg ,20gb
 
-**student-sg**  inbound rules
+### Student Features
+````text
+- Student Registration
+- Student Login
+- View Marks
+- View Attendance
+- Dashboard Access
+````
+
+### Python Flask API
+````text
+- Total Student Count API
+- MySQL Database Integration
+- Flask Backend Support
+````
+
+## **Architecture Overview**
+
+```text
+User Browser
+     │
+     ▼
+AWS Security Group
+     │
+     ▼
+Amazon EC2 Instance (Ubuntu)
+     │
+     ▼
+Docker Engine
+     │
+     ├── PHP + Apache Container
+     └── MySQL Container
+```
+
+# **Execution Steps:**
+
+## **Step 1: Launch EC2 Instance**
+
+Open AWS Console --> Navigate to EC2 Dashboard --> Click Launch Instance --> Instance Configuration --> Set Value for number of instances --> select AMI (Ubuntu Server 26.04) --> Instance Type	(t2.small/t3.small) --> Key Pair (Create/Select Existing) --> Security Group (Create/Select Existing)--> Storage Volume (20 GB) 
+
+**student-sg**  make sure to allow these in the security group inbound rules
 
 | Type       | Port |
 | ---------- | ---- |
@@ -93,6 +117,7 @@ ubunut ,t3.small , student-key.pem ,student-sg ,20gb
 ```shell
 ssh -i Donwloads/student-key.pem ubuntu@EC2-PUBLIC-IP
 ```
+
 ## 2️⃣ Update Ubuntu
 ```shell
 sudo apt update

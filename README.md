@@ -1,6 +1,6 @@
 # Student Management System
 
-The Student Management System is a full-stack web application developed using PHP, Python Flask, MySQL, Docker, CSS, and AWS EC2 to simplify and automate student data management for educational institutions. The application provides separate portals for administrators and students, enabling secure access to academic information, attendance records, and student management operations.
+The Student Management System is a full-stack web application developed using PHP, Python Flask, MySQL, Docker, HTML, CSS, and AWS EC2 to simplify and automate student data management for educational institutions. The application provides separate portals for administrators and students, enabling secure access to academic information, attendance records, and student management operations.
 
 The system is designed with a modular architecture that separates administrative functionalities from student functionalities, ensuring better maintainability, scalability, and security. The frontend is developed using HTML and CSS for a clean and responsive user interface, while PHP handles backend operations such as authentication, session management, database connectivity, and CRUD operations. A Python Flask service is integrated to support additional backend functionality and containerized deployment.
 

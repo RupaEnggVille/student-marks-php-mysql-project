@@ -66,8 +66,15 @@ student_management_system/
 │   ├── admin_login.php
 │   ├── admin_dashboard.php
 │   ├── add_student.php
+│   ├── delete_student.php
 │   ├── manage_marks.php
 │   ├── manage_attendance.php
+│   ├── edit_attendance.php
+│   ├── edit_marks.php
+│   ├── edit_student.php
+│   ├── edit_student_attendance.php
+│   ├── edit_student_marks.php
+│   ├── student_profile.php
 │   └── logout.php
 │
 ├── student/
@@ -76,6 +83,9 @@ student_management_system/
 │   ├── student_dashboard.php
 │   ├── view_marks.php
 │   ├── view_attendance.php
+│   ├── change_password.php
+│   ├── forgot_password.php
+│   ├── register.php
 │   └── logout.php
 │
 ├── assets/
@@ -101,7 +111,7 @@ student_management_system/
 │
 ├── README.md
 │
-└── index.php
+└── index.html
 ````
 
 ## **Architecture Overview**
@@ -119,6 +129,7 @@ Amazon EC2 Instance (Ubuntu)
 Docker Engine
      │
      ├── PHP + Apache Container
+     ├── Python Flask Container
      └── MySQL Container
 ```
 
@@ -148,10 +159,17 @@ ssh -i Donwloads/student-key.pem ubuntu@EC2-PUBLIC-IP
 sudo apt update
 sudo apt upgrade -y
 ```
-## Step-4: Install Git
+## Step-4: Install Git if not installed
 ```bash
 sudo apt install git -y
 ```
+
+verify:
+
+```bash
+git --version
+```
+
 ## Step-5: Install Docker Engine
 ```bash
 sudo apt install docker.io -y
@@ -199,6 +217,8 @@ echo \
 ```bash
   sudo apt install docker-compose-plugin -y
 
+verify:
+
   docker compose version
 
 ```
@@ -210,26 +230,54 @@ This allows you to run Docker commands without sudo:
 ```bash
 sudo groupadd docker
 ```
+
 # Add your user to the docker group
 ```bash
 sudo usermod -aG docker $USER
 ```
+
 # Apply the group change (you need to log out and back in, or run:)
 ```bash
 newgrp docker
 ```
+
 # Test
 ```bash
 docker ps
+```
+## Clone GitHub Repository to EC2 instance
+```bash
 git clone repo-url
+```
+## Go inside Repository
+```bash
+ls
+cd repo-name
+```
+### List the project files inside repo
+```bash
+ls
+```
 
+## Build images and containers with Docker Compose
+```bash
 docker compose up --build -d
 ````
+
+## Verify containers
+```bash
+docker compose ps
+```
+
 ## Access Application
+Open browser and access the web application with the public IP address of EC2 and host port of the container.
+
 ### PHP Application
 http://YOUR-EC2-IP:8080
+
 ### Flask API
 http://YOUR-EC2-IP:5000
+
 ### Default Admin Login
 
 | Username       | Password |

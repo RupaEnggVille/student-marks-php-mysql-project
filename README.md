@@ -133,6 +133,10 @@ Docker Engine
      └── MySQL Container
 ```
 
+## **Architecture**
+<img src="./images/Architecture.png">
+
+
 # Execution Steps:
 
 ## Step-1: Launch EC2 Instance
